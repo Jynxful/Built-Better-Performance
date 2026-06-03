@@ -1,0 +1,2 @@
+Drop your build photos in this folder.
+Recommended naming: build-1.jpg, build-2.jpg, hero-bg.jpg, etc.
