@@ -13,6 +13,19 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
+// Service accordion toggle
+function toggleService(item) {
+    const isActive = item.classList.contains('active');
+    // Close all others
+    document.querySelectorAll('.service-item').forEach(el => {
+        el.classList.remove('active');
+    });
+    // Toggle clicked one
+    if (!isActive) {
+        item.classList.add('active');
+    }
+}
+
 // Subtle navbar opacity on scroll
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {

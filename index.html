@@ -14,7 +14,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">BBP</a>
+            <a href="#" class="nav-logo"><img src="images/87F3F985-2FB7-4A70-BC27-C15F40025C10.PNG" alt="BBP Logo" class="nav-logo-img"></a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#builds">Builds</a></li>
@@ -61,46 +61,112 @@
             <h2>Services</h2>
         </div>
         <div class="services-list">
-            <div class="service-item">
+            <div class="service-item" onclick="toggleService(this)">
                 <span class="service-number">01</span>
                 <div class="service-content">
-                    <h3>Routine Maintenance</h3>
+                    <h3>Routine Maintenance <span class="expand-icon">+</span></h3>
                     <p>Oil changes, brake jobs, cooling systems, fluid flushes — keep your BMW dialed in.</p>
+                    <div class="service-details">
+                        <ul>
+                            <li>Full synthetic oil change & filter</li>
+                            <li>Brake pad & rotor replacement</li>
+                            <li>Cooling system overhaul (water pump, thermostat, hoses)</li>
+                            <li>Transmission & differential fluid service</li>
+                            <li>Spark plugs & ignition coils</li>
+                            <li>Serpentine belt & tensioner</li>
+                            <li>Multi-point inspection included with every service</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="service-item">
+            <div class="service-item" onclick="toggleService(this)">
                 <span class="service-number">02</span>
                 <div class="service-content">
-                    <h3>Engine Swaps</h3>
+                    <h3>Engine Swaps <span class="expand-icon">+</span></h3>
                     <p>Full engine pulls and swaps. N54, S54, B58 — whatever platform, we've done it.</p>
+                    <div class="service-details">
+                        <ul>
+                            <li>Complete engine removal & installation</li>
+                            <li>Wiring harness adaptation & integration</li>
+                            <li>Custom motor mounts & fabrication</li>
+                            <li>ECU tuning & coding for swapped motors</li>
+                            <li>Drivetrain & transmission matching</li>
+                            <li>Cooling & oil system upgrades for new platform</li>
+                            <li>Popular swaps: N54→E46, S54→E46, B58→E-chassis</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="service-item">
+            <div class="service-item" onclick="toggleService(this)">
                 <span class="service-number">03</span>
                 <div class="service-content">
-                    <h3>Turbo Installs & Forced Induction</h3>
+                    <h3>Turbo Installs & Forced Induction <span class="expand-icon">+</span></h3>
                     <p>Single turbo builds, upgraded twins, supporting mods, and tuning support.</p>
+                    <div class="service-details">
+                        <ul>
+                            <li>Single turbo kit installation & routing</li>
+                            <li>Upgraded twin turbo setups (TD04, 20G, etc.)</li>
+                            <li>Supporting mods: fuel pump, injectors, FMIC</li>
+                            <li>Custom downpipes & exhaust fabrication</li>
+                            <li>Oil feed & return line routing</li>
+                            <li>Boost leak testing & validation</li>
+                            <li>Tuning support (MHD, Bootmod3, custom)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="service-item">
+            <div class="service-item" onclick="toggleService(this)">
                 <span class="service-number">04</span>
                 <div class="service-content">
-                    <h3>Performance Bolt-Ons</h3>
+                    <h3>Performance Bolt-Ons <span class="expand-icon">+</span></h3>
                     <p>Downpipes, intakes, intercoolers, exhaust — bolt-ons to full-send power packages.</p>
+                    <div class="service-details">
+                        <ul>
+                            <li>Catless / high-flow catted downpipes</li>
+                            <li>Cold air intakes & charge pipes</li>
+                            <li>Front-mount intercooler upgrades</li>
+                            <li>Full turbo-back exhaust systems</li>
+                            <li>Blow-off valves & wastegate upgrades</li>
+                            <li>VRSF, Wagner, ER, Vargas — we install all brands</li>
+                            <li>Stage 1, Stage 2, Stage 2+ packages</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="service-item">
+            <div class="service-item" onclick="toggleService(this)">
                 <span class="service-number">05</span>
                 <div class="service-content">
-                    <h3>Suspension & Handling</h3>
+                    <h3>Suspension & Handling <span class="expand-icon">+</span></h3>
                     <p>Coilovers, bushings, sway bars, alignment — corner balance to track-ready setups.</p>
+                    <div class="service-details">
+                        <ul>
+                            <li>Coilover installation & adjustment</li>
+                            <li>Lowering springs & strut combos</li>
+                            <li>Control arm & bushing refresh</li>
+                            <li>Sway bars & end links</li>
+                            <li>Camber plates & adjustable arms</li>
+                            <li>Corner balancing & alignment</li>
+                            <li>Brands: KW, BC Racing, Bilstein, Ground Control</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="service-item">
+            <div class="service-item" onclick="toggleService(this)">
                 <span class="service-number">06</span>
                 <div class="service-content">
-                    <h3>Diagnostics & Coding</h3>
+                    <h3>Diagnostics & Coding <span class="expand-icon">+</span></h3>
                     <p>ISTA, MHD, Bootmod3 — proper diagnosis and coding, not guesswork.</p>
+                    <div class="service-details">
+                        <ul>
+                            <li>Full ISTA diagnostic scan & report</li>
+                            <li>Fault code reading & root cause analysis</li>
+                            <li>Module coding & feature activation</li>
+                            <li>DME flashing & tune installation</li>
+                            <li>Injector index reset & adaptation</li>
+                            <li>VANOS relearn & idle adaptation</li>
+                            <li>Pre-purchase inspection diagnostics</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
