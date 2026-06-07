@@ -1,29 +1,47 @@
 // Mobile menu toggle
-const hamburger = document.querySelector('.hamburger');
+const hamburger = document.getElementById('hamburger');
 const navLinks = document.querySelector('.nav-links');
 
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
-// Close mobile menu when a link is clicked
+// Close mobile menu on link click
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
     });
 });
 
-// Simple review carousel dots (click to scroll)
-const dots = document.querySelectorAll('.dot');
-const reviewCards = document.querySelectorAll('.review-card');
+// Subtle navbar opacity on scroll
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        navbar.style.borderBottomColor = 'rgba(255,255,255,0.08)';
+    } else {
+        navbar.style.borderBottomColor = 'rgba(255,255,255,0.05)';
+    }
+});
 
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        dots.forEach(d => d.classList.remove('active'));
-        dot.classList.add('active');
-        // On mobile, scroll to the corresponding review
-        if (window.innerWidth <= 768 && reviewCards[index]) {
-            reviewCards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+// Fade in elements on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
         }
     });
+}, observerOptions);
+
+// Apply to service items and build cards
+document.querySelectorAll('.service-item, .build-card, .info-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
 });

@@ -7,148 +7,189 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Top Banner -->
-    <div class="top-banner">
-        <a href="#" target="_blank">FOLLOW OUR INSTAGRAM FOR THE LATEST CONTENT & UPDATES! @BUILTBETTERPERFORMANCE</a>
-    </div>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <a href="#home">BuiltBetterPerformance</a>
-            </div>
+            <a href="#" class="nav-logo">BBP</a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
-                <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#builds">Builds</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
+            <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="images/BUILT BETTER STICKER.PNG" alt="Built Better Performance" class="hero-logo">
-            <p class="tagline">Dependable. Quality Work. Fair Prices.</p>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-split">
+            <div class="hero-left">
+                <img src="images/BUILT BETTER STICKER.png" alt="Built Better Performance Logo" class="hero-logo">
+            </div>
+            <div class="hero-right">
+                <div class="hero-label">BMW Specialists</div>
+                <h1>We Build<br><span class="accent">BMWs Better.</span></h1>
+                <p>Engine swaps. Turbo installs. Full maintenance. From your daily to your track car — we handle it all.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn-primary">Get a Quote</a>
+                    <a href="#builds" class="btn-secondary">See Our Work</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-track">
+            <span>N54 &bull; N55 &bull; S54 &bull; S55 &bull; B58 &bull; S58 &bull; M3 &bull; M4 &bull; 335i &bull; 135i &bull; E90 &bull; E92 &bull; F30 &bull; F80 &bull; G80 &bull;</span>
+            <span>N54 &bull; N55 &bull; S54 &bull; S55 &bull; B58 &bull; S58 &bull; M3 &bull; M4 &bull; 335i &bull; 135i &bull; E90 &bull; E92 &bull; F30 &bull; F80 &bull; G80 &bull;</span>
+        </div>
+    </div>
+
+    <!-- Services -->
     <section id="services" class="services">
-        <div class="services-grid">
-            <a href="#contact" class="service-card">
-                <h3>Full Service Annual Checkup</h3>
-                <p>Comprehensive annual inspection covering all major systems, fluids, and components to keep your BMW running at peak performance.</p>
-            </a>
-            <a href="#contact" class="service-card">
-                <h3>Performance Upgrades</h3>
-                <p>Professional performance modifications and tuning to enhance your BMW's power, handling, and overall driving experience.</p>
-            </a>
-            <a href="#contact" class="service-card">
-                <h3>Engine Swaps & Turbo Builds</h3>
-                <p>Full engine pulls, motor swaps, single turbo conversions, and complete forced induction builds done right.</p>
-            </a>
-            <a href="#contact" class="service-card">
-                <h3>General Maintenance</h3>
-                <p>Regular maintenance services including oil changes, brake service, cooling systems, and other essential upkeep for your BMW.</p>
-            </a>
+        <div class="section-header">
+            <span class="section-label">What We Do</span>
+            <h2>Services</h2>
         </div>
-        <div class="services-cta">
-            <a href="#contact" class="cta-btn">Get Your Quote Today</a>
+        <div class="services-list">
+            <div class="service-item">
+                <span class="service-number">01</span>
+                <div class="service-content">
+                    <h3>Routine Maintenance</h3>
+                    <p>Oil changes, brake jobs, cooling systems, fluid flushes — keep your BMW dialed in.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <span class="service-number">02</span>
+                <div class="service-content">
+                    <h3>Engine Swaps</h3>
+                    <p>Full engine pulls and swaps. N54, S54, B58 — whatever platform, we've done it.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <span class="service-number">03</span>
+                <div class="service-content">
+                    <h3>Turbo Installs & Forced Induction</h3>
+                    <p>Single turbo builds, upgraded twins, supporting mods, and tuning support.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <span class="service-number">04</span>
+                <div class="service-content">
+                    <h3>Performance Bolt-Ons</h3>
+                    <p>Downpipes, intakes, intercoolers, exhaust — bolt-ons to full-send power packages.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <span class="service-number">05</span>
+                <div class="service-content">
+                    <h3>Suspension & Handling</h3>
+                    <p>Coilovers, bushings, sway bars, alignment — corner balance to track-ready setups.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <span class="service-number">06</span>
+                <div class="service-content">
+                    <h3>Diagnostics & Coding</h3>
+                    <p>ISTA, MHD, Bootmod3 — proper diagnosis and coding, not guesswork.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Customer Reviews Section -->
-    <section id="reviews" class="reviews">
-        <h2>CUSTOMER REVIEWS</h2>
-        <div class="reviews-carousel">
-            <div class="review-card">
-                <h3>Customer Name</h3>
-                <p class="review-text">"Built Better Performance handled my entire N54 build from top to bottom. Engine swap, turbo kit, full cooling system — everything was done clean and right. These guys know BMWs inside and out. I won't go anywhere else."</p>
-                <a href="#builds" class="review-link">View Build →</a>
-            </div>
-            <div class="review-card">
-                <h3>Customer Name</h3>
-                <p class="review-text">"Brought my E90 in for rod bearings and they knocked it out fast. Fair pricing, great communication, and they even caught a few other things I didn't know about. Honest shop that does quality work."</p>
-                <a href="#builds" class="review-link">View Build →</a>
-            </div>
-            <div class="review-card">
-                <h3>Customer Name</h3>
-                <p class="review-text">"I had a long list of maintenance items and they handled everything in one shot. Oil change, brake flush, new charge pipe, VANOS solenoids — the car drives like new. Already booked my next service."</p>
-                <a href="#builds" class="review-link">View Build →</a>
-            </div>
-        </div>
-        <div class="carousel-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </section>
-
-    <!-- Builds Section -->
+    <!-- Builds -->
     <section id="builds" class="builds">
-        <h2>OUR BUILDS</h2>
-        <div class="builds-grid">
-            <div class="build-item">
-                <div class="build-placeholder">Build Photo Coming Soon</div>
-                <p class="build-title">N54 Single Turbo Build</p>
+        <div class="section-header">
+            <span class="section-label">Our Work</span>
+            <h2>Recent Builds</h2>
+        </div>
+        <div class="builds-scroll">
+            <div class="build-card">
+                <div class="build-img-placeholder">Photo</div>
+                <div class="build-info">
+                    <h4>N54 Single Turbo</h4>
+                    <p>Full turbo kit + supporting mods</p>
+                </div>
             </div>
-            <div class="build-item">
-                <div class="build-placeholder">Build Photo Coming Soon</div>
-                <p class="build-title">E92 M3 Track Prep</p>
+            <div class="build-card">
+                <div class="build-img-placeholder">Photo</div>
+                <div class="build-info">
+                    <h4>E92 M3 Track Build</h4>
+                    <p>Suspension, brakes, aero</p>
+                </div>
             </div>
-            <div class="build-item">
-                <div class="build-placeholder">Build Photo Coming Soon</div>
-                <p class="build-title">F30 Full Bolt-On</p>
+            <div class="build-card">
+                <div class="build-img-placeholder">Photo</div>
+                <div class="build-info">
+                    <h4>F30 340i Bolt-On</h4>
+                    <p>Full B58 FBO + tune</p>
+                </div>
+            </div>
+            <div class="build-card">
+                <div class="build-img-placeholder">Photo</div>
+                <div class="build-info">
+                    <h4>E46 Engine Swap</h4>
+                    <p>S54 swap into E46 sedan</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Info Cards Section -->
-    <section class="info-cards">
-        <div class="info-grid">
-            <div class="info-card" id="about">
-                <h3>ABOUT BUILT BETTER PERFORMANCE</h3>
-                <p>"Built Better Performance was born from a passion for BMWs and a group of friends who decided to turn their garage hobby into something bigger. Whether it's a daily driver or a full-send track build, we do it all."</p>
-                <a href="#" class="info-link">Read more →</a>
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="section-header">
+                <span class="section-label">Who We Are</span>
+                <h2>About Us</h2>
             </div>
-            <div class="info-card" id="contact">
-                <h3>NEED A SERVICE?</h3>
-                <p>From engine swaps to regular maintenance, we handle everything BMW. Reach out to get a quote — we'll follow up quickly.</p>
-                <a href="mailto:builtbetterperformance@gmail.com" class="info-link">Get a Quote! →</a>
+            <div class="about-text">
+                <p class="about-lead">A group of friends who live and breathe BMWs.</p>
+                <p>What started as wrenching on our own cars turned into something bigger. We saw too many shops cutting corners and overcharging — so we decided to do it right. Every car that comes through gets treated like it's our own.</p>
+                <p>From basic maintenance to pulling motors — if it's a BMW, we've worked on it.</p>
             </div>
-            <div class="info-card">
-                <h3>VIEW OUR BUILDS</h3>
-                <p>See what we've been wrenching on. Check out our full builds, custom setups, and everything we've done for real BMW enthusiasts.</p>
-                <a href="#builds" class="info-link">Our Builds →</a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-left">
+                <span class="section-label">Let's Talk</span>
+                <h2>Ready to<br>get started?</h2>
             </div>
-            <div class="info-card">
-                <h3>GOT SOMETHING UNIQUE IN MIND?</h3>
-                <p>We take on all kinds of BMW projects. If you don't see what you're looking for, shoot us a message — we'll make it happen.</p>
-                <a href="#contact" class="info-link">Message →</a>
+            <div class="contact-right">
+                <p>Hit us up for quotes, questions, or just to talk BMWs. We respond fast.</p>
+                <div class="contact-links">
+                    <a href="#" class="contact-link">
+                        <span class="contact-icon">&#9993;</span>
+                        <span>builtbetterperformance@gmail.com</span>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <span class="contact-icon">&#9742;</span>
+                        <span>DM us on Instagram</span>
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">TikTok</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-social">
-            <a href="#" target="_blank">Instagram</a>
-            <a href="#" target="_blank">YouTube</a>
-            <a href="#" target="_blank">TikTok</a>
-        </div>
-        <p class="footer-copy">&copy; 2025 Built Better Performance. All rights reserved.</p>
+        <p>&copy; 2025 Built Better Performance. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
