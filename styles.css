@@ -52,6 +52,7 @@ a {
     height: 80px;
     width: auto;
     margin: -20px 0;
+    margin-left: -2.5rem;
 }
 
 .nav-links {
