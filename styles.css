@@ -29,6 +29,7 @@ a {
     width: 100%;
     z-index: 1000;
     background: rgba(11, 11, 15, 0.9);
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
@@ -151,7 +152,9 @@ a {
     background: linear-gradient(135deg, #4da8da, #a77bca);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
     background-clip: text;
+    color: transparent;
 }
 
 .hero-right p {
