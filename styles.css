@@ -214,7 +214,7 @@ a {
 
 .marquee-track {
     display: flex;
-    animation: scroll 20s linear infinite;
+    animation: scroll 40s linear infinite;
     white-space: nowrap;
 }
 
@@ -223,7 +223,7 @@ a {
     font-size: 0.85rem;
     letter-spacing: 2px;
     color: #444;
-    padding-right: 1rem;
+    padding-right: 2rem;
 }
 
 @keyframes scroll {
