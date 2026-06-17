@@ -231,6 +231,53 @@ a {
     100% { transform: translateX(-50%); }
 }
 
+/* ===== PLATFORMS ===== */
+.platforms {
+    padding: 4rem 3rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.platforms-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.platform-badge {
+    background: #131318;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.platform-badge:hover {
+    border-color: rgba(255,255,255,0.12);
+    transform: translateY(-3px);
+}
+
+.platform-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.platform-badge h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.6rem;
+}
+
+.platform-badge p {
+    font-size: 0.88rem;
+    color: #777;
+    line-height: 1.6;
+}
+
 /* ===== SECTIONS COMMON ===== */
 .section-header {
     margin-bottom: 3rem;
@@ -353,6 +400,7 @@ a {
 }
 
 /* ===== BUILDS ===== */
+.builds {
     padding: 6rem 3rem;
     max-width: 1300px;
     margin: 0 auto;
@@ -429,7 +477,7 @@ a {
 }
 
 .about-text {
-    max-width: 650px;
+    max-width: 700px;
 }
 
 .about-lead {
@@ -444,6 +492,19 @@ a {
     color: #888;
     margin-bottom: 1rem;
     line-height: 1.8;
+}
+
+.about-tagline {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.about-tagline p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
 }
 
 /* ===== CONTACT ===== */
@@ -545,6 +606,11 @@ footer {
 
     .hero-actions {
         justify-content: center;
+    }
+
+    .platforms-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .contact-container {
