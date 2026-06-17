@@ -51,8 +51,8 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Apply to service items and build cards
-document.querySelectorAll('.service-item, .build-card, .info-card').forEach(el => {
+// Apply to service items, build cards, platform badges, and info cards
+document.querySelectorAll('.service-item, .build-card, .info-card, .platform-badge').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
