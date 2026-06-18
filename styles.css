@@ -111,23 +111,9 @@ a {
 }
 
 .hero-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    width: 100%;
-}
-
-.hero-left {
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-
-.hero-logo {
     width: 100%;
-    max-width: 500px;
-    height: auto;
 }
 
 .hero-right {
@@ -590,14 +576,9 @@ footer {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-    .hero-split {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        text-align: center;
-    }
-
     .hero-right {
         align-items: center;
+        text-align: center;
     }
 
     .hero-right p {
@@ -656,9 +637,5 @@ footer {
     .about,
     .contact {
         padding: 4rem 1.5rem;
-    }
-
-    .hero-logo {
-        max-width: 300px;
     }
 }
