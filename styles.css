@@ -552,13 +552,14 @@ a {
 .social-links {
     display: flex;
     gap: 1.5rem;
+    align-items: center;
 }
 
 .social-links a {
-    font-size: 0.85rem;
     color: #555;
-    font-weight: 500;
     transition: color 0.3s;
+    display: flex;
+    align-items: center;
 }
 
 .social-links a:hover {
