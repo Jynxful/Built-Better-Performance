@@ -234,7 +234,7 @@
             <h2>Recent Builds</h2>
         </div>
         <div class="builds-scroll">
-            <div class="build-card">
+            <div class="build-card" data-gallery='["images/1of49 MAIN.JPG"]'>
                 <div class="build-img">
                     <img src="images/1of49 MAIN.JPG" alt="2011 BMW 335is 1 of 49">
                 </div>
@@ -244,7 +244,7 @@
                     <span class="build-owner">Owner: Christian</span>
                 </div>
             </div>
-            <div class="build-card">
+            <div class="build-card" data-gallery='["images/BLAKEE90wFLAG.JPG","images/BLAKEE90BAY.JPG","images/BLAKEE90INTERIOR.JPG","images/BLAKESE90HOODUPFARVIEW.JPG"]'>
                 <div class="build-img">
                     <img src="images/BLAKEE90wFLAG.JPG" alt="2008 BMW 335i E90 DCT Swap - Blake">
                 </div>
@@ -325,6 +325,17 @@
             </div>
         </div>
     </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+        <div class="lightbox-img-wrap">
+            <img src="" alt="" id="lightboxImg">
+        </div>
+        <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Next">&#8250;</button>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
 
     <!-- Footer -->
     <footer>

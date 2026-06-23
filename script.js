@@ -58,3 +58,77 @@ document.querySelectorAll('.service-item, .build-card, .info-card, .platform-bad
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
+
+// ===== LIGHTBOX =====
+const lightbox     = document.getElementById('lightbox');
+const lightboxImg  = document.getElementById('lightboxImg');
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+const lightboxClose= document.getElementById('lightboxClose');
+const lightboxCounter = document.getElementById('lightboxCounter');
+
+let currentGallery = [];
+let currentIndex   = 0;
+
+function openLightbox(gallery, index) {
+    currentGallery = gallery;
+    currentIndex   = index;
+    showSlide(currentIndex);
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function showSlide(index) {
+    lightboxImg.src = currentGallery[index];
+    lightboxImg.alt = '';
+    // Counter
+    if (currentGallery.length > 1) {
+        lightboxCounter.textContent = `${index + 1} / ${currentGallery.length}`;
+    } else {
+        lightboxCounter.textContent = '';
+    }
+    // Arrow visibility
+    lightboxPrev.classList.toggle('hidden', currentGallery.length <= 1);
+    lightboxNext.classList.toggle('hidden', currentGallery.length <= 1);
+}
+
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+    showSlide(currentIndex);
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % currentGallery.length;
+    showSlide(currentIndex);
+}
+
+// Attach click handlers to build cards with galleries
+document.querySelectorAll('.build-card[data-gallery]').forEach(card => {
+    const gallery = JSON.parse(card.dataset.gallery);
+    const imgWrap = card.querySelector('.build-img');
+    if (imgWrap) {
+        imgWrap.addEventListener('click', () => openLightbox(gallery, 0));
+    }
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightboxPrev.addEventListener('click', prevSlide);
+lightboxNext.addEventListener('click', nextSlide);
+
+// Close on backdrop click
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape')      closeLightbox();
+    if (e.key === 'ArrowLeft')   prevSlide();
+    if (e.key === 'ArrowRight')  nextSlide();
+});
