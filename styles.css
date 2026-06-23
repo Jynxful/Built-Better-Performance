@@ -402,6 +402,8 @@ a {
     padding-bottom: 1rem;
     scrollbar-width: thin;
     scrollbar-color: #333 transparent;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
 .builds-scroll::-webkit-scrollbar {
@@ -425,6 +427,7 @@ a {
     background: #131318;
     border: 1px solid rgba(255,255,255,0.05);
     transition: all 0.3s;
+    scroll-snap-align: start;
 }
 
 .build-card:hover {
@@ -667,6 +670,24 @@ footer {
     .about,
     .contact {
         padding: 4rem 1.5rem;
+    }
+
+    .builds {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .builds .section-header {
+        padding: 0 1.5rem;
+    }
+
+    .builds-scroll {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .build-card {
+        min-width: 80vw;
     }
 }
 
