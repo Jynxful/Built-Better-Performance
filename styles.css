@@ -458,6 +458,15 @@ a {
     color: #666;
 }
 
+.build-owner {
+    display: inline-block;
+    margin-top: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #4da8da;
+    letter-spacing: 0.5px;
+}
+
 /* ===== ABOUT ===== */
 .about {
     padding: 6rem 3rem;
