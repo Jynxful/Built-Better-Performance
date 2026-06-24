@@ -628,8 +628,24 @@ footer {
     }
 
     .platforms-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .platform-badge {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .platform-icon {
+        font-size: 1.8rem;
+    }
+
+    .platform-badge h3 {
+        font-size: 1rem;
+    }
+
+    .platform-badge p {
+        font-size: 0.75rem;
     }
 
     .contact-container {
