@@ -687,7 +687,12 @@ footer {
     }
 
     .build-card {
-        min-width: 80vw;
+        min-width: 72vw;
+    }
+
+    .build-img,
+    .build-img-placeholder {
+        height: 160px;
     }
 }
 
