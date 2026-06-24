@@ -253,6 +253,56 @@ a {
     margin-bottom: 1rem;
 }
 
+.platform-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.platform-logo svg {
+    display: none;
+}
+
+.platform-flag {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.platform-logo span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.brand-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.brand-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    opacity: 0.55;
+    transition: opacity 0.2s;
+    filter: brightness(0) invert(1);
+    flex-shrink: 0;
+}
+
+.platform-badge:hover .brand-icon {
+    opacity: 0.9;
+}
+
 .platform-badge h3 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.3rem;
@@ -633,19 +683,33 @@ footer {
     }
 
     .platform-badge {
-        padding: 1.25rem 0.5rem;
+        padding: 1.25rem 0.75rem;
     }
 
-    .platform-icon {
-        font-size: 1.8rem;
+    .platform-logo svg {
+        width: 44px;
+        height: 44px;
     }
 
-    .platform-badge h3 {
-        font-size: 0.9rem;
+    .platform-logo span {
+        font-size: 0.8rem;
+    }
+
+    .platform-flag {
+        font-size: 1.4rem;
+    }
+
+    .brand-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .brand-logos {
+        gap: 0.4rem;
     }
 
     .platform-badge p {
-        display: none;
+        font-size: 0.72rem;
     }
 
     .contact-container {
