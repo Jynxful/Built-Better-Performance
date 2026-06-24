@@ -295,3 +295,62 @@ lightboxImg.addEventListener('touchmove', (e) => {
         e.preventDefault();
     }
 }, { passive: false });
+
+// ===== QUOTE FORM TOGGLE =====
+const quoteToggle = document.getElementById('quoteToggle');
+const quoteFormWrap = document.getElementById('quoteFormWrap');
+if (quoteToggle && quoteFormWrap) {
+    quoteToggle.addEventListener('click', () => {
+        const isOpen = quoteFormWrap.classList.contains('open');
+        quoteFormWrap.classList.toggle('open', !isOpen);
+        quoteToggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+}
+
+// ===== QUOTE FORM =====
+const quoteForm = document.getElementById('quoteForm');
+if (quoteForm) {
+    quoteForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const fname   = document.getElementById('fname').value.trim();
+        const lname   = document.getElementById('lname').value.trim();
+        const email   = document.getElementById('email').value.trim();
+        const phone   = document.getElementById('phone').value.trim();
+        const year    = document.getElementById('year').value.trim();
+        const make    = document.getElementById('make').value.trim();
+        const model   = document.getElementById('model').value.trim();
+        const service = document.getElementById('service').value;
+        const details = document.getElementById('details').value.trim();
+
+        const subject = encodeURIComponent(`Quote Request — ${year} ${make} ${model}`);
+        const body = encodeURIComponent(
+`Name: ${fname} ${lname}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+
+Vehicle: ${year} ${make} ${model}
+Service: ${service}
+
+Details:
+${details || 'None provided'}`
+        );
+
+        window.location.href = `mailto:builtbetterperformance@gmail.com?subject=${subject}&body=${body}`;
+
+        // Show confirmation
+        quoteForm.style.opacity = '0.4';
+        quoteForm.style.pointerEvents = 'none';
+        const msg = document.createElement('p');
+        msg.className = 'form-success';
+        msg.style.display = 'block';
+        msg.textContent = "Opening your email app... we'll get back to you fast.";
+        quoteForm.after(msg);
+
+        setTimeout(() => {
+            quoteForm.style.opacity = '1';
+            quoteForm.style.pointerEvents = '';
+            msg.remove();
+        }, 4000);
+    });
+}
