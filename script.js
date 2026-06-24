@@ -51,12 +51,23 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Apply to service items, build cards, platform badges, and info cards
-document.querySelectorAll('.service-item, .build-card, .info-card, .platform-badge').forEach(el => {
+// Apply fade-in to vertically scrolled elements (not build cards in horizontal scroll)
+document.querySelectorAll('.service-item, .info-card, .platform-badge').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
+});
+
+// Build cards use a horizontal scroll container — fade them in on load instead
+document.querySelectorAll('.build-card').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s`;
+    setTimeout(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+    }, 300 + i * 100);
 });
 
 // ===== LIGHTBOX =====
