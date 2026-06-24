@@ -633,7 +633,7 @@ footer {
     }
 
     .platform-badge {
-        padding: 1.5rem 0.75rem;
+        padding: 1.25rem 0.5rem;
     }
 
     .platform-icon {
@@ -641,11 +641,11 @@ footer {
     }
 
     .platform-badge h3 {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .platform-badge p {
-        font-size: 0.75rem;
+        display: none;
     }
 
     .contact-container {
