@@ -692,6 +692,33 @@ footer {
 
     .platform-badge {
         padding: 1.25rem 0.75rem;
+        cursor: pointer;
+    }
+
+    /* collapsed by default on mobile */
+    .badge-details {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+
+    .platform-badge.open .badge-details {
+        max-height: 300px;
+    }
+
+    /* small + indicator */
+    .platform-logo::after {
+        content: '+';
+        display: block;
+        font-size: 0.75rem;
+        color: #555;
+        margin-top: 0.25rem;
+        transition: transform 0.3s;
+    }
+
+    .platform-badge.open .platform-logo::after {
+        transform: rotate(45deg);
+        color: #4da8da;
     }
 
     .platform-logo svg {

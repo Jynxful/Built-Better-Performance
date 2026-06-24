@@ -70,7 +70,20 @@ document.querySelectorAll('.build-card').forEach((el, i) => {
     }, 300 + i * 100);
 });
 
-// ===== LIGHTBOX =====
+// Platform badge tap-to-expand on mobile
+function initPlatformToggles() {
+    const badges = document.querySelectorAll('.platform-badge');
+    if (window.innerWidth <= 768) {
+        badges.forEach(badge => {
+            badge.addEventListener('click', () => {
+                const isOpen = badge.classList.contains('open');
+                badges.forEach(b => b.classList.remove('open'));
+                if (!isOpen) badge.classList.add('open');
+            });
+        });
+    }
+}
+initPlatformToggles();
 const lightbox     = document.getElementById('lightbox');
 const lightboxImg  = document.getElementById('lightboxImg');
 const lightboxPrev = document.getElementById('lightboxPrev');
