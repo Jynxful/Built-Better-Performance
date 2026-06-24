@@ -421,6 +421,8 @@ a {
 
 .build-card {
     min-width: 300px;
+    max-width: 300px;
+    width: 300px;
     flex-shrink: 0;
     border-radius: 16px;
     overflow: hidden;
@@ -448,13 +450,16 @@ a {
 .build-img {
     height: 200px;
     overflow: hidden;
+    position: relative;
 }
 
 .build-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
+    max-width: 100%;
     transition: transform 0.4s ease;
 }
 
@@ -687,8 +692,9 @@ footer {
     }
 
     .build-card {
-        min-width: 260px;
-        max-width: 260px;
+        min-width: 240px;
+        max-width: 240px;
+        width: 240px;
     }
 
     .build-img,
