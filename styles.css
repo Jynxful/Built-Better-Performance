@@ -102,10 +102,10 @@ a {
 
 /* ===== HERO ===== */
 .hero {
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     align-items: center;
-    padding: 8rem 3rem 4rem;
+    padding: 10rem 3rem 5rem;
     max-width: 1300px;
     margin: 0 auto;
 }
@@ -126,11 +126,19 @@ a {
 }
 
 .hero-label {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #666;
-    font-weight: 500;
+    letter-spacing: 4px;
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.hero-label .label-divider {
+    color: #4da8da;
+    font-size: 1.1rem;
 }
 
 .hero-right h1 {
@@ -747,7 +755,7 @@ footer {
     }
 
     .hero {
-        padding: 7rem 1.5rem 3rem;
+        padding: 8rem 1.5rem 3rem;
     }
 
     .services,
@@ -804,6 +812,8 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .lightbox-img-wrap img {
@@ -812,6 +822,10 @@ footer {
     object-fit: contain;
     border-radius: 8px;
     user-select: none;
+    transform-origin: center center;
+    will-change: transform;
+    transition: none;
+    -webkit-user-drag: none;
 }
 
 .lightbox-close {

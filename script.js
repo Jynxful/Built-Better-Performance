@@ -143,3 +143,142 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft')   prevSlide();
     if (e.key === 'ArrowRight')  nextSlide();
 });
+
+// ===== LIGHTBOX ZOOM =====
+let zoomScale = 1;
+let zoomOriginX = 0;
+let zoomOriginY = 0;
+let isDragging = false;
+let dragStartX = 0;
+let dragStartY = 0;
+let translateX = 0;
+let translateY = 0;
+
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 4;
+
+function applyZoom() {
+    lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${zoomScale})`;
+    lightboxImg.style.cursor = zoomScale > 1 ? 'grab' : 'default';
+}
+
+function resetZoom() {
+    zoomScale = 1;
+    translateX = 0;
+    translateY = 0;
+    lightboxImg.style.transition = 'transform 0.2s ease';
+    applyZoom();
+    setTimeout(() => lightboxImg.style.transition = '', 200);
+}
+
+// Reset zoom when changing slides
+const _showSlide = showSlide;
+showSlide = function(index) {
+    resetZoom();
+    _showSlide(index);
+};
+
+// Also reset on close
+const _closeLightbox = closeLightbox;
+closeLightbox = function() {
+    resetZoom();
+    _closeLightbox();
+};
+
+// Desktop: scroll to zoom
+const lightboxImgWrap = document.querySelector('.lightbox-img-wrap');
+lightboxImgWrap.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? -0.15 : 0.15;
+    zoomScale = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, zoomScale + delta));
+    if (zoomScale === MIN_ZOOM) { translateX = 0; translateY = 0; }
+    applyZoom();
+}, { passive: false });
+
+// Desktop: drag to pan when zoomed
+lightboxImg.addEventListener('mousedown', (e) => {
+    if (zoomScale <= 1) return;
+    isDragging = true;
+    dragStartX = e.clientX - translateX;
+    dragStartY = e.clientY - translateY;
+    lightboxImg.style.cursor = 'grabbing';
+    e.preventDefault();
+});
+
+document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    translateX = e.clientX - dragStartX;
+    translateY = e.clientY - dragStartY;
+    applyZoom();
+});
+
+document.addEventListener('mouseup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    lightboxImg.style.cursor = zoomScale > 1 ? 'grab' : 'default';
+});
+
+// Desktop: double-click to reset zoom
+lightboxImg.addEventListener('dblclick', resetZoom);
+
+// Mobile: pinch to zoom
+let pinchStartDist = 0;
+let pinchStartScale = 1;
+let pinchMidX = 0;
+let pinchMidY = 0;
+let touchStartX = 0;
+let touchStartY = 0;
+let lastTouchX = 0;
+let lastTouchY = 0;
+let isTouchDragging = false;
+let lastTapTime = 0;
+
+lightboxImg.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 2) {
+        // Pinch start
+        pinchStartDist = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+        );
+        pinchStartScale = zoomScale;
+        pinchMidX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        pinchMidY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        e.preventDefault();
+    } else if (e.touches.length === 1) {
+        touchStartX = e.touches[0].clientX - translateX;
+        touchStartY = e.touches[0].clientY - translateY;
+        lastTouchX = e.touches[0].clientX;
+        lastTouchY = e.touches[0].clientY;
+        isTouchDragging = false;
+
+        // Double-tap to reset
+        const now = Date.now();
+        if (now - lastTapTime < 300) {
+            resetZoom();
+            lastTapTime = 0;
+        } else {
+            lastTapTime = now;
+        }
+    }
+}, { passive: false });
+
+lightboxImg.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 2) {
+        // Pinch zoom
+        const dist = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+        );
+        zoomScale = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, pinchStartScale * (dist / pinchStartDist)));
+        if (zoomScale === MIN_ZOOM) { translateX = 0; translateY = 0; }
+        applyZoom();
+        e.preventDefault();
+    } else if (e.touches.length === 1 && zoomScale > 1) {
+        // Pan when zoomed
+        isTouchDragging = true;
+        translateX = e.touches[0].clientX - touchStartX;
+        translateY = e.touches[0].clientY - touchStartY;
+        applyZoom();
+        e.preventDefault();
+    }
+}, { passive: false });
